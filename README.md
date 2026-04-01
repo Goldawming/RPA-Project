@@ -29,6 +29,7 @@ Bot automatizado em Node.js + Playwright para acessar o portal de Alistamento Mi
 ├── data/                   ← Certificados salvos aqui
 ├── .env                    ← (não subir no Git)
 ├── credentials.enc         ← Credenciais criptografadas (não subir no Git)
+├── setup-credentials.js    ← Script para configurar credenciais
 ├── .gitignore
 ├── .env.example
 ├── README.md
@@ -70,38 +71,13 @@ SECRET_KEY=alistamento-bot-2026-super-chave-criptografia-force-32chars-ABC123xyz
 
 **Opção 1: Script interativo (recomendado para evitar erros)**
 
-Crie um arquivo `setup-credentials.js` na raiz do projeto com o seguinte código exato:
-
-```javascript
-#!/usr/bin/env node
-'use strict';
-
-const { CredentialsManager } = require('./src/credentials');
-const readline = require('readline');
-
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-rl.question('Digite seu CPF (apenas números): ', (cpf) => {
-    rl.question('Digite sua senha: ', (senha) => {
-        const credManager = new CredentialsManager();
-        credManager.save(cpf, senha);
-        console.log('✅ Credenciais salvas com sucesso!');
-        rl.close();
-    });
-});
-```
-
-Torne o arquivo executável e execute:
+O arquivo `setup-credentials.js` já está incluído no projeto. Execute diretamente:
 
 ```bash
-chmod +x setup-credentials.js
 node setup-credentials.js
 ```
 
-Digite seu CPF (ex: `12345678901`) e senha quando solicitado.
+Digite seu CPF (ex: `12345678901`) e senha quando solicitado. A senha **não será exibida** no terminal (aparecerão asteriscos `*`).
 
 **Opção 2: Comando direto (use aspas se necessário)**
 
@@ -259,6 +235,7 @@ Edite `config/config.json` para ajustar:
 
 - Este bot é para **uso pessoal e educacional**
 - O portal do Governo pode mudar a qualquer momento
+- Respeite os Termos de Uso do site do Exército Brasileiro
 
 ---
 
@@ -275,3 +252,4 @@ Edite `config/config.json` para ajustar:
 
 Projeto para fins educacionais e uso pessoal.
 
+Feito com ❤️ para facilitar a vida.
