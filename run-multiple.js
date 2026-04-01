@@ -7,7 +7,7 @@ const path = require('path');
 
 // 📝 CONFIGURE SEUS LOGINS AQUI
 const LOGINS = [
-    { cpf: '49160972890', senha: 'KeMerwon!25' },
+    { cpf: 'xxxxxxxxxxx', senha: 'xxxxxxxxx' },
     // { cpf: '12345678901', senha: 'outra_senha' },
     // { cpf: '11122233344', senha: 'mais_uma_senha' }
 ];
