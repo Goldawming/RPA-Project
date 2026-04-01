@@ -223,7 +223,6 @@ Edite `config/config.json` para ajustar:
 
 - Este bot é para **uso pessoal e educacional**
 - O portal do Governo pode mudar a qualquer momento
-- Respeite os Termos de Uso do site do Exército Brasileiro
 
 ---
 
@@ -239,5 +238,3 @@ Edite `config/config.json` para ajustar:
 ## 📄 Licença
 
 Projeto para fins educacionais e uso pessoal.
-
-Feito com ❤️ para facilitar a vida.
