@@ -68,22 +68,58 @@ SECRET_KEY=alistamento-bot-2026-super-chave-criptografia-force-32chars-ABC123xyz
 
 ### 4. Salve suas credenciais (execute apenas 1 vez)
 
-**Use aspas simples** se sua senha contiver caracteres especiais (`!`, `$`, etc):
+**Opção 1: Script interativo (recomendado para evitar erros)**
+
+Crie um arquivo `setup-credentials.js` na raiz do projeto com o seguinte código exato:
+
+```javascript
+#!/usr/bin/env node
+'use strict';
+
+const { CredentialsManager } = require('./src/credentials');
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Digite seu CPF (apenas números): ', (cpf) => {
+    rl.question('Digite sua senha: ', (senha) => {
+        const credManager = new CredentialsManager();
+        credManager.save(cpf, senha);
+        console.log('✅ Credenciais salvas com sucesso!');
+        rl.close();
+    });
+});
+```
+
+Torne o arquivo executável e execute:
 
 ```bash
-npm run save-cred "SEU_CPF_SEM_PONTOS" 'SUA_SENHA'
+chmod +x setup-credentials.js
+node setup-credentials.js
+```
+
+Digite seu CPF (ex: `12345678901`) e senha quando solicitado.
+
+**Opção 2: Comando direto (use aspas se necessário)**
+
+```bash
+npm run save-cred "SEU_CPF_SEM_PONTOS" "SUA_SENHA"
 ```
 
 **Exemplo real:**
 ```bash
-npm run save-cred "12345678901" 'MinhaSenha!25'
+npm run save-cred "12345678901" "MinhaSenha!25"
 ```
 
 > ⚠️ **IMPORTANTE:**
 > - Use CPF **SEM pontos nem hífen** (Ex: `12345678901`)
-> - Use **aspas simples** `'...'` se a senha tiver caracteres especiais
+> - Se a senha tiver caracteres especiais (`!`, `$`, etc), use aspas duplas `"..."` no comando direto
 > - O comando executa **apenas 1 vez** - as credenciais são criptografadas e salvas
 > - **Nunca compartilhe** os arquivos `.env` ou `credentials.enc`
+> - Se der erro de descriptografia, verifique se a `SECRET_KEY` no `.env` está correta
 
 ### 5. Execute o bot
 
@@ -238,3 +274,4 @@ Edite `config/config.json` para ajustar:
 ## 📄 Licença
 
 Projeto para fins educacionais e uso pessoal.
+
