@@ -105,7 +105,9 @@ npm start
 
 ---
 
-## 🔄 Executar com Múltiplos Logins
+## 🔄 Executar com Múltiplos Logins 
+
+`EM FASE DE TESTE!!`
 
 Se você precisa executar o bot **várias vezes** com **CPFs/senhas diferentes**, use o script `run-multiple.js`:
 
