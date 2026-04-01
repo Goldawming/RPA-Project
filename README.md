@@ -253,5 +253,3 @@ Edite `config/config.json` para ajustar:
 ## 📄 Licença
 
 Projeto para fins educacionais e uso pessoal.
-
-Feito com ❤️ para facilitar a vida.
