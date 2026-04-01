@@ -1,0 +1,31 @@
+{
+  "navegador": {
+    "headless": false,
+    "viewport": { "width": 1920, "height": 1080 },
+    "executablePath": {
+      "win32": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "linux": "/usr/bin/google-chrome-stable"
+    },
+    "args": [
+      "--start-maximized",
+      "--no-first-run",
+      "--no-default-browser-check",
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+      "--disable-blink-features=AutomationControlled"
+    ]
+  },
+  "urls": {
+    "inicial": "https://alistamento.eb.mil.br/lista-servicos",
+    "certificado": "/certificado"
+  },
+  "timeout": {
+    "navegacao": 60000,
+    "seletor": 30000
+  },
+  "digitacao": {
+    "minDelay": 50,
+    "maxDelay": 135
+  }
+}
